@@ -3,14 +3,13 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Header = ({isLoggedIn, handleClick, user}) => (
   <div>
     <h1>Chess Online</h1>
     <nav>
       {isLoggedIn ? (
         <div>
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
+          <a href="#" onClick={() => handleClick(user.username)}>
             Logout
           </a>
         </div>
@@ -27,16 +26,17 @@ const Navbar = ({handleClick, isLoggedIn}) => (
 
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 
 const mapDispatch = dispatch => {
   return {
-    handleClick() {
-      dispatch(logout())
+    handleClick(username) {
+      dispatch(logout(username))
     }
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(Header)

@@ -1,3 +1,4 @@
-export {default as Navbar} from './navbar'
-export {default as UserHome} from './user-home'
-export {Login, Signup} from './auth-form'
+export {default as Header} from './header'
+export {default as Sidebar} from './sidebar'
+export {default as Room} from './room'
+export {Login, Signup} from './auth'

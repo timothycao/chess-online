@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {auth} from '../store'
 
-const AuthForm = props => {
+const Auth = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
@@ -57,5 +57,5 @@ const mapDispatch = dispatch => {
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Login = connect(mapLogin, mapDispatch)(Auth)
+export const Signup = connect(mapSignup, mapDispatch)(Auth)

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {withRouter, Route, Switch} from 'react-router-dom'
-import {Login, Signup, UserHome} from './components'
-import {me} from './store'
+import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
+import {Login, Signup, Room} from './components'
+import {me, fetchRooms} from './store'
 
 class Routes extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class Routes extends Component {
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn, user} = this.props
 
     return (
       <Switch>
@@ -18,7 +18,8 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         {isLoggedIn && (
           <Switch>
-            <Route path="/home" component={UserHome} />
+            <Route path={`/rooms/${user.roomId}`} component={Room} />
+            <Redirect to={`/rooms/${user.roomId}`} />
           </Switch>
         )}
         <Route component={Login} />
@@ -29,7 +30,8 @@ class Routes extends Component {
 
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 
@@ -37,6 +39,7 @@ const mapDispatch = dispatch => {
   return {
     loadInitialData() {
       dispatch(me())
+      dispatch(fetchRooms())
     }
   }
 }
