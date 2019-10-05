@@ -15,8 +15,9 @@ router.get('/', async (req, res, next) => {
 
 router.put('/:userId', async (req, res, next) => {
   try {
+    const {roomId} = req.body
     const user = await User.findByPk(req.params.userId)
-    user.setRoom(req.body.roomId)
+    user.setRoom(roomId)
     res.send(user)
   } catch (err) {
     next(err)

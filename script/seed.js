@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Room} = require('../server/db/models')
+const {User, Room, Game} = require('../server/db/models')
 
 const users = [
   {username: 'timothy', password: '123'},
@@ -18,14 +18,24 @@ const rooms = [
   {name: 'Pawn'}
 ]
 
+const games = [
+  {roomId: 1},
+  {roomId: 2},
+  {roomId: 3},
+  {roomId: 4},
+  {roomId: 5},
+  {roomId: 6}
+]
+
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
   await Promise.all(rooms.map(room => Room.create(room)))
   await Promise.all(users.map(user => User.create(user)))
+  await Promise.all(games.map(game => Game.create(game)))
 
-  console.log(`seeded ${users.length} users and ${rooms.length} rooms`)
+  console.log(`seeded ${users.length} users, ${rooms.length} rooms, and ${games.length} games`)
   console.log(`seeded successfully`)
 }
 

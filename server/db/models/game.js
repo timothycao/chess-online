@@ -10,6 +10,10 @@ module.exports = db.define('game', {
     type: Sequelize.STRING,
     defaultValue: 'start'
   },
+  turn: {
+    type: Sequelize.STRING,
+    defaultValue: 'w'
+  },
   white: Sequelize.STRING,
   black: Sequelize.STRING
 })

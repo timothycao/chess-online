@@ -4,12 +4,13 @@ module.exports = router
 
 router.post('/login', async (req, res, next) => {
   try {
-    const user = await User.findOne({where: {username: req.body.username}})
+    const {username, password} = req.body
+    const user = await User.findOne({where: {username}})
     if (!user) {
-      console.log('No such user found:', req.body.username)
+      console.log('No such user found:', username)
       res.status(401).send('Wrong username and/or password')
-    } else if (!user.correctPassword(req.body.password)) {
-      console.log('Incorrect password for user:', req.body.username)
+    } else if (!user.correctPassword(password)) {
+      console.log('Incorrect password for user:', username)
       res.status(401).send('Wrong username and/or password')
     } else {
       user.setRoom(1)
@@ -22,9 +23,10 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
+    const {username, password} = req.body
     const user = await User.create({
-      username: req.body.username,
-      password: req.body.password,
+      username,
+      password,
       roomId: 1
     })
     req.login(user, err => (err ? next(err) : res.json(user)))
@@ -37,12 +39,17 @@ router.post('/signup', async (req, res, next) => {
   }
 })
 
-router.post('/logout', async (req, res) => {
-  const user = await User.findOne({where: {username: req.body.username}})
-  user.setRoom(null)
-  req.logout()
-  req.session.destroy()
-  res.redirect('/')
+router.post('/logout', async (req, res, next) => {
+  try {
+    const {username} = req.body
+    const user = await User.findOne({where: {username}})
+    user.setRoom(null)
+    req.logout()
+    req.session.destroy()
+    res.redirect('/')
+  } catch (err) {
+    next(err)
+  }
 })
 
 router.get('/me', (req, res) => {

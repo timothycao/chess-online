@@ -1,4 +1,6 @@
 export {default as Header} from './header'
 export {default as Sidebar} from './sidebar'
 export {default as Room} from './room'
+export {default as Game} from './game'
+export {default as Queue} from './queue'
 export {Login, Signup} from './auth'

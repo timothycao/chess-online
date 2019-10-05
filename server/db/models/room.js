@@ -3,5 +3,8 @@ const db = require('../db')
 
 module.exports = db.define('room', {
   name: Sequelize.STRING,
-  queue: Sequelize.ARRAY(Sequelize.STRING)
+  queue: {
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    defaultValue: []
+  }
 })

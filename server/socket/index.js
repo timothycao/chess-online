@@ -2,18 +2,30 @@ module.exports = io => {
   io.on('connection', socket => {
     console.log(`Socket ${socket.id} has connected to the server`)
 
-    socket.on('join-room', room => {
-      socket.room = room
-      socket.join(room)
+    socket.on('join-room', roomId => {
+      socket.room = roomId
+      socket.join(roomId)
     })
 
-    socket.on('change-room', newRoom => {
-      if (socket.room !== newRoom) {
+    socket.on('change-room', newRoomId => {
+      if (socket.room !== newRoomId) {
         socket.leave(socket.room)
-        socket.join(newRoom)
-        socket.room = newRoom
+        socket.join(newRoomId)
+        socket.room = newRoomId
       }
       socket.broadcast.emit('update-room-count')
+    })
+
+    socket.on('update-queue', (roomId, room) => {
+      socket.to(roomId).emit('update-room', room)
+    })
+
+    socket.on('update-players', (roomId, game) => {
+      socket.to(roomId).emit('update-game', game)
+    })
+
+    socket.on('update-position', (roomId, game) => {
+      socket.to(roomId).emit('update-game', game)
     })
 
     socket.on('disconnect', () => {
