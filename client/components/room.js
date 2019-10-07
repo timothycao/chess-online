@@ -29,9 +29,8 @@ class Room extends Component {
   render() {
     const {room} = this.props
     return (
-      <div>
-        <h2>Room: {room.name}</h2>
-        <h3>Game</h3>
+      <div className="content">
+        {/* <div >Room: {room.name}</div> */}
         <Game queue={room.queue} {...this.state} setModal={this.setModal} />
         <Queue queue={room.queue} setModal={this.setModal} />
         <Chat />

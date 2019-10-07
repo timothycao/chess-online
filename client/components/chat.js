@@ -35,8 +35,8 @@ class Chat extends Component {
     const {content} = this.state
 
     return (
-      <div>
-        <h3>Chat</h3>
+      <div className="chat">
+        <div>Chat</div>
         <div>
           {messages.map(message => {
             return (

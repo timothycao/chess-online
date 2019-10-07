@@ -198,8 +198,8 @@ class Game extends Component {
     const {width, orientation, lightSquareStyle, darkSquareStyle, dropSquareStyle} = this.state
 
     return (
-      <div>
-        <div className="game">
+      <div className="game">
+        <div className="chess">
           {
             modal ?
             <Modal type={modalType} message={modalMessage} joinGame={this.joinGame} playAgain={this.playAgain} newGame={this.newGame} white={white} black={black} queue={queue} username={username} /> :

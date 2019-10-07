@@ -10,11 +10,12 @@ const Sidebar = ({isLoggedIn, user, rooms, currentRoom, game, handleClick}) => {
   const inGame = white === username || black === username || queue && queue.includes(username)
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" >
+      <hr />
       {rooms.map(room => (
-        <div className={`${isLoggedIn && !inGame ? 'rooms' : 'disable'}`} key={room.id} onClick={() => {handleClick(user.id, room.id)}}>
-          {room.name}
-          <span>{room.users.length}</span>
+        <div className={`${isLoggedIn && !inGame ? user.roomId === room.id ? 'current-room' : 'room' : 'disable'}`} key={room.id} onClick={() => {handleClick(user.id, room.id)}}>
+          <div>{room.name}</div>
+          <div className="count">{room.users.length}</div>
         </div>
       ))}
     </div>

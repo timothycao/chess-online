@@ -1,36 +1,151 @@
 body {
   font-family: sans-serif;
   background: rgb(229, 211, 179);
+  margin: 0;
 }
 
-a {
+.container {
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "sidebar content";
+  grid-template-rows: 85px 1fr;
+  grid-template-columns: 200px 1fr;
+}
+
+.container > header {
+  grid-area: header;
+  background-color: rgb(152, 117, 84);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.container > .sidebar {
+  grid-area: sidebar;
+  background-color: rgb(185,153,118);
+  height: 100vh;
+}
+
+.container > .content {
+  grid-area: content;
+  background-color: rgb(229, 211, 179);
+  display: grid;
+  grid-template-areas:
+  "game queue"
+  "game chat";
+  grid-template-rows: 300px 1fr;
+  grid-template-columns: 900px 1fr;
+}
+
+.container > .content > .game {
+  grid-area: game;
+  background-color: white;
+  margin: 50px;
+}
+
+.container > .content > .queue {
+  grid-area: queue;
+  background-color: white;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.container > .content > .chat {
+  grid-area: chat;
+  background-color: white;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  max-width: 1450px;
+  padding: 0;
+}
+
+nav .nav-item {
+  color: rgb(229, 211, 179);
+  padding: 30px 1.5vw;
   text-decoration: none;
+  font-size: 1.2em;
+  transition: all 0.2s linear;
 }
 
-label {
-  display: block;
+nav .nav-item:hover {
+  color: rgb(60, 45, 30);
+  cursor: pointer;
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+hr {
+  background-color: rgb(229, 211, 179);
+  height: 2px;
+  border: 0;
+  margin-top: 50px;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+.current-room {
+  display: flex;
+  align-items: center;
+  color: rgb(229, 211, 179);
+  background-color: rgb(152, 117, 84);
+  padding: 15px;
 }
 
-.rooms {
-  color: black;
+.current-room > .count {
+  background-color: rgb(185,153,118);
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+
+.room {
+  display: flex;
+  align-items: center;
+  color: rgb(60, 45, 30);
+  padding: 15px;
+}
+
+.room > .count {
+  background-color: rgb(152, 117, 84);
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+
+.room:hover {
+  color: rgb(229, 211, 179);
+  background-color: rgb(152, 117, 84);
+  cursor: pointer;
+}
+
+.room:hover .count{
+  background-color: rgb(185,153,118);
 }
 
 .disable {
   pointer-events: none;
+  display: flex;
+  align-items: center;
   color: gray;
+  padding: 15px;
 }
 
-.game {
+.disable > .count {
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.chess {
   position: relative;
   width: 640px
 }

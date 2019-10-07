@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 
 const Queue = ({game, queue}) => {
   return (
-    <div>
-      <h3>Players</h3>
+    <div className="queue">
+      <div>Players</div>
       <div>White: {game.white}</div>
       <div>Black: {game.black}</div>
-      <h3>Queue</h3>
+      <div>Queue</div>
       <div>
         {queue && queue.join(', ')}
       </div>

@@ -4,12 +4,13 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
 const Header = ({isLoggedIn, handleClick, user, room, game}) => (
-  <div>
-    <h1>Chess Online</h1>
+  <header>
     <nav>
+      <div className="nav-item">Chess Online</div>
       {isLoggedIn ? (
         <div>
           <a
+            className="nav-item"
             href="#"
             onClick={
               () => handleClick(
@@ -36,13 +37,12 @@ const Header = ({isLoggedIn, handleClick, user, room, game}) => (
         </div>
       ) : (
         <div>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
+          <Link className="nav-item" to="/login">Login</Link>
+          <Link className="nav-item" to="/signup">Sign Up</Link>
         </div>
       )}
     </nav>
-    <hr />
-  </div>
+  </header>
 )
 
 const mapState = state => {

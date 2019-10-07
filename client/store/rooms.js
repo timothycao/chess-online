@@ -10,6 +10,7 @@ export const getRooms = rooms => ({type: GET_ROOMS, rooms})
 export const fetchRooms = () => async dispatch => {
   try {
     const res = await axios.get('/api/rooms')
+    res.data.sort((a, b) => a.id - b.id)
     dispatch(getRooms(res.data))
   } catch (err) {
     console.error(err)
