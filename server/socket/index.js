@@ -28,6 +28,14 @@ module.exports = io => {
       socket.to(roomId).emit('update-game', game)
     })
 
+    socket.on('forfeit', (roomId, game) => {
+      socket.to(roomId).emit('update-game', game)
+    })
+
+    socket.on('new-game', (roomId, game) => {
+      socket.to(roomId).emit('update-game', game)
+    })
+
     socket.on('disconnect', () => {
       console.log(`Socket ${socket.id} has disconnected from the server`)
     })

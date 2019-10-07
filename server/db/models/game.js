@@ -15,5 +15,6 @@ module.exports = db.define('game', {
     defaultValue: 'w'
   },
   white: Sequelize.STRING,
-  black: Sequelize.STRING
+  black: Sequelize.STRING,
+  forfeit: Sequelize.STRING
 })

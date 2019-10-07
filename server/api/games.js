@@ -53,6 +53,17 @@ router.put('/:gameId/position', async (req, res, next) => {
   }
 })
 
+router.put('/:gameId/forfeit', async (req, res, next) => {
+  try {
+    const {username} = req.body
+    let game = await Game.findByPk(req.params.gameId)
+    game = await game.update({forfeit: username})
+    res.send(game)
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     const {roomId} = req.body

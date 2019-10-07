@@ -49,6 +49,10 @@ router.put('/:roomId/queue', async (req, res, next) => {
       room = await room.update({
         queue: [...room.queue].filter(user => user !== username)
       })
+    } else if (event === 'join-front') {
+      room = await room.update({
+        queue: [username, ...room.queue]
+      })
     }
     res.send(room)
   } catch (err) {

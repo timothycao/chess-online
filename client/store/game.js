@@ -38,6 +38,27 @@ export const updatePosition = (roomId, gameId, position, turn) => async dispatch
   }
 }
 
+export const forfeitGame = (roomId, gameId, username) => async dispatch => {
+  try {
+    const res = await axios.put(`/api/games/${gameId}/forfeit`, {username})
+    dispatch(getGame(res.data))
+    socket.emit('forfeit', roomId, res.data)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+export const fetchNewGame = (roomId, gameId) => async dispatch => {
+  try {
+    await axios.put(`/api/games/${gameId}/active`, {active: false})
+    const res = await axios.post('/api/games', {roomId})
+    dispatch(getGame(res.data))
+    socket.emit('new-game', roomId, res.data)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 // INITIAL STATE
 const defaultGame = {
   position: 'start',

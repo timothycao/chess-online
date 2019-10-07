@@ -1,7 +1,7 @@
 import axios from 'axios'
 import history from '../history'
 import socket from '../socket'
-import {fetchRooms} from '../store'
+import {fetchRooms, updateQueue, updatePlayers, forfeitGame} from '../store'
 
 // ACTION TYPES
 const GET_USER = 'GET_USER'
@@ -36,8 +36,16 @@ export const auth = (username, password, method) => async dispatch => {
   }
 }
 
-export const logout = (username) => async dispatch => {
+export const logout = (status, roomId, gameId, side, username) => async dispatch => {
+  console.log(status, roomId, gameId, side, username)
   try {
+    if (status === 'inGame') {
+      dispatch(forfeitGame(roomId, gameId, username))
+    } else if (status === 'inSelection') {
+      dispatch(updatePlayers(roomId, gameId, side, null))
+    } else if (status === 'inQueue') {
+      dispatch(updateQueue(roomId, 'leave', username))
+    }
     await axios.post('/auth/logout', {username})
     dispatch(fetchRooms())
     socket.emit('change-room', null)
