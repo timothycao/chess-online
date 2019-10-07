@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchRoom} from '../store'
-import {Game, Queue} from '../components'
+import {Game, Queue, Chat} from '../components'
 
 class Room extends Component {
   constructor() {
@@ -34,7 +34,7 @@ class Room extends Component {
         <h3>Game</h3>
         <Game queue={room.queue} {...this.state} setModal={this.setModal} />
         <Queue queue={room.queue} setModal={this.setModal} />
-        <h3>Chat</h3>
+        <Chat />
       </div>
     )
   }

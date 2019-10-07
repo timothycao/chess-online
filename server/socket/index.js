@@ -36,6 +36,10 @@ module.exports = io => {
       socket.to(roomId).emit('update-game', game)
     })
 
+    socket.on('send-message', (roomId, message) => {
+      socket.to(roomId).emit('update-chat', message)
+    })
+
     socket.on('disconnect', () => {
       console.log(`Socket ${socket.id} has disconnected from the server`)
     })

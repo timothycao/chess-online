@@ -222,7 +222,7 @@ class Game extends Component {
         {
           username === white || username === black ?
           white && black ?
-          <button onClick={this.forfeit} disabled={forfeit}>Forfeit</button> :
+          <button onClick={this.forfeit} disabled={forfeit || this.game.in_checkmate() || this.game.in_stalemate()}>Forfeit</button> :
           <button onClick={() => this.leaveGame(username === white ? 'white' : 'black')}>Leave Game</button> :
           queue && queue.includes(username) ?
           <button onClick={this.leaveQueue}>Leave Queue</button> :

@@ -6,8 +6,9 @@ import user from './user'
 import rooms from './rooms'
 import room from './room'
 import game from './game'
+import messages from './messages'
 
-const reducer = combineReducers({user, rooms, room, game})
+const reducer = combineReducers({user, rooms, room, game, messages})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -18,3 +19,4 @@ export * from './user'
 export * from './rooms'
 export * from './room'
 export * from './game'
+export * from './messages'

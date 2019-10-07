@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Room, User, Game} = require('../db/models')
+const {Room, User, Game, Message} = require('../db/models')
 
 module.exports = router
 
@@ -32,6 +32,17 @@ router.get('/:roomId/game', async (req, res, next) => {
       where: {roomId: req.params.roomId, active: true}
     })
     res.send(game)
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.get('/:roomId/messages', async (req, res, next) => {
+  try {
+    const messages = await Message.findAll({
+      where: {roomId: req.params.roomId}
+    })
+    res.send(messages)
   } catch (err) {
     next(err)
   }
