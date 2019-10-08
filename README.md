@@ -2,6 +2,11 @@
 
 Welcome to Chess Online, an interactive player vs player chess competition platform.
 
+**Deployed at:**
+```
+https://ch3ss-online.herokuapp.com
+```
+
 **This application was built using:**
 - NERD stack (Node, Express, React and Redux, PostgreSQL)
 - Chessboardjsx and Chess.js
