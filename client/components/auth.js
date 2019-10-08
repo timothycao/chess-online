@@ -23,8 +23,8 @@ const Auth = props => {
           }
         </div>
         <div className="auth-form">
-          <input className="auth-input" name="username" type="text" placeholder="Username" />
-          <input className="auth-input" name="password" type="password" placeholder="Password" />
+          <input className="auth-input" name="username" type="text" placeholder="Username" required />
+          <input className="auth-input" name="password" type="password" placeholder="Password" required />
           <button className="auth-button" type="submit">{displayName}</button>
         </div>
       </form>
