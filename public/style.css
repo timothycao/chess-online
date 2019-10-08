@@ -242,6 +242,60 @@ hr {
   transform: translate(-50%, -50%)
 }
 
+.modal-buttons > *:hover {
+  color: white;
+  background-color: rgb(177, 62, 42);
+  cursor: pointer;
+}
+
+.modal-buttons > *:disabled {
+  color: white;
+  background-color: gray;
+}
+
+.modal-message {
+  font-size: 1.5em;
+  color: white;
+  margin: 10px;
+}
+
+.modal-timer {
+  font-size: 1.7em;
+  color: white;
+}
+
+.white-button {
+  color: black;
+  background-color: white;
+  border: none;
+  padding: 20px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.black-button {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 20px 30px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.play-again-button {
+  color: white;
+  background-color: rgb(0, 179, 44);
+  border: none;
+  padding: 10px 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
 .buttons {
   display: flex;
   justify-content: space-around;

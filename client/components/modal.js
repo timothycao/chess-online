@@ -32,38 +32,33 @@ class Modal extends Component {
       <div className="modal">
         <div className="modal-content">
           {
-            type === 'selection' ?
-            <div>
-              {message}
-              <button onClick={() => joinGame('white')} disabled={white && white !== username}>White</button>
-              <button onClick={() => joinGame('black')} disabled={black && black !== username}>Black</button>
+            type === 'playagain' ?
+            username === queue[0] ?
+            <div className="modal-message">You have been added to the front of the queue!</div> :
+            <div className="modal-message">{message}</div> :
+            <div className="modal-message">{message}</div>
+          }
+          {
+            type === 'playagain' || type === 'gameover' ?
+            <div className="modal-message">
+              {!timerOn ? this.startTimer() : null}
+              Next game starts in <span className="modal-timer">{time}</span>...
             </div> :
-            type === 'wait' ?
-            <div>
-              {message}
+            null
+          }
+          {
+            type === 'selection' ?
+            <div className="modal-buttons">
+              <button className="white-button" onClick={() => joinGame('white')} disabled={white && white !== username}>White</button>
+              <button className="black-button" onClick={() => joinGame('black')} disabled={black && black !== username}>Black</button>
             </div> :
             type === 'playagain' ?
-            <div>
-              {
-                username === queue[0] ?
-                <div>You have been added to the front of the queue!</div> :
-                <div>
-                  {message}
-                  <button onClick={playAgain}>Play Again</button>
-                </div>
-              }
-              {!timerOn ? this.startTimer() : null}
-              <div>Next game starts in {time}...</div>
+            username === queue[0] ?
+            null :
+            <div className="modal-buttons">
+              <button className="play-again-button" onClick={playAgain}>Play Again</button>
             </div> :
-            type === 'gameover' ?
-            <div>
-              {message}
-              {!timerOn ? this.startTimer() : null}
-              <div>Next game starts in {time}...</div>
-            </div> :
-            <div>
-              {message}
-            </div>
+            null
           }
         </div>
       </div>
