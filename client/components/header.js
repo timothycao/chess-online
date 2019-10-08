@@ -38,7 +38,7 @@ const Header = ({isLoggedIn, handleClick, user, room, game}) => (
       ) : (
         <div>
           <Link className="nav-item" to="/login">Login</Link>
-          <Link className="nav-item" to="/signup">Sign Up</Link>
+          <Link className="nav-item" to="/signup">Signup</Link>
         </div>
       )}
     </nav>

@@ -7,24 +7,28 @@ const Auth = props => {
 
   return (
     <div className="content">
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
+      <div className="auth-header">
+        <div className="auth-greeting">
+          <h3>Welcome to Chess Online!</h3>
+          <div>We are a community of chess enthusiasts. Our interactive platform features gamerooms, each of which hosts player vs player "King of the Court" style competition. Join different rooms to play, or watch and chat with fellow enthusiasts!</div>
         </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
+      </div>
+      <div />
+      <form className="auth" onSubmit={handleSubmit} name={name}>
+        <div className="auth-message">
+          {
+            error && error.response ?
+            <div>{error.response.data}</div> :
+            <div>{displayName} to continue.</div>
+          }
         </div>
-        <div>
-          <button type="submit">{displayName}</button>
+        <div className="auth-form">
+          <input className="auth-input" name="username" type="text" placeholder="Username" />
+          <input className="auth-input" name="password" type="password" placeholder="Password" />
+          <button className="auth-button" type="submit">{displayName}</button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
       </form>
+      <div />
     </div>
   )
 }
@@ -40,7 +44,7 @@ const mapLogin = state => {
 const mapSignup = state => {
   return {
     name: 'signup',
-    displayName: 'Sign Up',
+    displayName: 'Signup',
     error: state.user.error
   }
 }

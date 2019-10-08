@@ -9,11 +9,11 @@ class Game extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      width: 640,
+      width: 600,
       orientation: 'white',
-      lightSquareStyle: 'rgb(240, 217, 181)',
-      darkSquareStyle: 'rgb(181, 136, 99)',
-      dropSquareStyle: 'sienna'
+      lightSquareStyle: 'rgb(238, 238, 210)',
+      darkSquareStyle: 'rgb(118, 150, 86)',
+      dropSquareStyle: 'rgb(70, 90, 51)'
     }
     this.draggable = this.draggable.bind(this)
     this.flipBoard = this.flipBoard.bind(this)
@@ -70,19 +70,19 @@ class Game extends Component {
 
   changeBoard() {
     if (
-      this.state.lightSquareStyle === 'rgb(240, 217, 181)' &&
-      this.state.darkSquareStyle === 'rgb(181, 136, 99)'
+      this.state.lightSquareStyle === 'rgb(238, 238, 210)' &&
+      this.state.darkSquareStyle === 'rgb(118, 150, 86)'
     ) {
-      this.setState({
-        lightSquareStyle: 'rgb(238, 238, 210)',
-        darkSquareStyle: 'rgb(118, 150, 86)',
-        dropSquareStyle: 'rgb(70, 90, 51)'
-      })
-    } else {
       this.setState({
         lightSquareStyle: 'rgb(240, 217, 181)',
         darkSquareStyle: 'rgb(181, 136, 99)',
         dropSquareStyle: 'sienna'
+      })
+    } else {
+      this.setState({
+        lightSquareStyle: 'rgb(238, 238, 210)',
+        darkSquareStyle: 'rgb(118, 150, 86)',
+        dropSquareStyle: 'rgb(70, 90, 51)'
       })
     }
   }
@@ -192,13 +192,14 @@ class Game extends Component {
   }
 
   render() {
-    const {user, game, modal, modalType, modalMessage, queue} = this.props
+    const {user, room, game, modal, modalType, modalMessage, queue} = this.props
     const {username} = user
     const {position, white, black, forfeit} = game
     const {width, orientation, lightSquareStyle, darkSquareStyle, dropSquareStyle} = this.state
 
     return (
       <div className="game">
+        <div className="room-header">{room.name}'s Room</div>
         <div className="chess">
           {
             modal ?
@@ -219,17 +220,19 @@ class Game extends Component {
             onDrop={this.onDrop}
           />
         </div>
-        {
-          username === white || username === black ?
-          white && black ?
-          <button onClick={this.forfeit} disabled={forfeit || this.game.in_checkmate() || this.game.in_stalemate()}>Forfeit</button> :
-          <button onClick={() => this.leaveGame(username === white ? 'white' : 'black')}>Leave Game</button> :
-          queue && queue.includes(username) ?
-          <button onClick={this.leaveQueue}>Leave Queue</button> :
-          <button onClick={this.joinQueue}>Join Queue</button>
-        }
-        <button onClick={this.flipBoard} disabled={username === white || username === black}>Flip Board</button>
-        <button onClick={this.changeBoard}>Change Board</button>
+        <div className="buttons">
+          {
+            username === white || username === black ?
+            white && black ?
+            <button className="bad" onClick={this.forfeit} disabled={forfeit || this.game.in_checkmate() || this.game.in_stalemate()}>Forfeit</button> :
+            <button className="bad" onClick={() => this.leaveGame(username === white ? 'white' : 'black')}>Leave Game</button> :
+            queue && queue.includes(username) ?
+            <button className="bad" onClick={this.leaveQueue}>Leave Queue</button> :
+            <button className="good" onClick={this.joinQueue}>Join Queue</button>
+          }
+          <button className="neutral" onClick={this.flipBoard} disabled={username === white || username === black}>Flip Board</button>
+          <button className="neutral" onClick={this.changeBoard}>Change Board</button>
+        </div>
       </div>
     )
   }

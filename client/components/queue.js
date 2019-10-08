@@ -4,12 +4,13 @@ import {connect} from 'react-redux'
 const Queue = ({game, queue}) => {
   return (
     <div className="queue">
-      <div>Players</div>
-      <div>White: {game.white}</div>
-      <div>Black: {game.black}</div>
-      <div>Queue</div>
-      <div>
-        {queue && queue.join(', ')}
+      <div className="room-header">
+        <div className="player">White: {game.white}</div>
+        <div className="player">Black: {game.black}</div>
+      </div>
+      <div className="room-header">
+        <div>Queue:&nbsp;</div>
+        <div>{queue && queue.join(', ')}</div>
       </div>
     </div>
   )

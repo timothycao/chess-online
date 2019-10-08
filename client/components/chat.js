@@ -31,13 +31,13 @@ class Chat extends Component {
   }
 
   render() {
-    const {messages} = this.props
+    const {messages, name} = this.props
     const {content} = this.state
 
     return (
       <div className="chat">
-        <div>Chat</div>
-        <div>
+        <div className="room-header">{name}'s Chatroom</div>
+        <div className="chat-box">
           {messages.map(message => {
             return (
               <div key={message.id}>
@@ -46,9 +46,9 @@ class Chat extends Component {
             )
           })}
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" name="content" value={content} onChange={this.handleChange}/>
-          <button type="submit">Send</button>
+        <form className="chat-bar" onSubmit={this.handleSubmit}>
+          <input className="chat-input" type="text" name="content" value={content} onChange={this.handleChange} placeholder="Type your message here..." />
+          <button className="chat-button" type="submit" disabled={!content.length}>Send</button>
         </form>
       </div>
     )

@@ -30,10 +30,10 @@ class Room extends Component {
     const {room} = this.props
     return (
       <div className="content">
-        {/* <div >Room: {room.name}</div> */}
+        {/* <div>Room: {room.name}</div> */}
         <Game queue={room.queue} {...this.state} setModal={this.setModal} />
         <Queue queue={room.queue} setModal={this.setModal} />
-        <Chat />
+        <Chat name={room.name} />
       </div>
     )
   }
