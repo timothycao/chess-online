@@ -4,15 +4,13 @@ body {
   margin: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .container {
-    display: grid;
-    grid-template-areas:
-    "header header"
-    "sidebar content";
-    grid-template-rows: 85px 1px;
-    grid-template-columns: 1.2fr 8.8fr;
-  }
+.container {
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "sidebar content";
+  grid-template-rows: 75px 1px;
+  grid-template-columns: 1.2fr 8.8fr;
 }
 
 .container > header {
@@ -27,7 +25,7 @@ body {
 .container > .sidebar {
   grid-area: sidebar;
   background-color: rgb(185,153,118);
-  height: 100vh;
+  height: 56vw;
 }
 
 .container > .content {
@@ -39,31 +37,31 @@ body {
   "game chat";
   grid-template-rows: 1fr 10fr;
   grid-template-columns: 1fr 1fr;
-  padding: 2.5vw;
-  gap: 2.5vw;
+  padding: 1.5vw;
+  gap: 1.5vw;
 }
 
 .container > .content > .auth {
   background-color: white;
-  padding: 2.5vw;
+  padding: 1.5vw;
 }
 
 .container > .content > .game {
   grid-area: game;
   background-color: white;
-  padding: 2.5vw;
+  padding: 1.5vw;
 }
 
 .container > .content > .queue {
   grid-area: queue;
   background-color: white;
-  padding: 2.5vw;
+  padding: 1.5vw;
 }
 
 .container > .content > .chat {
   grid-area: chat;
   background-color: white;
-  padding: 2.5vw;
+  padding: 1.5vw;
 }
 
 nav {
@@ -71,8 +69,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
-  max-width: 1450px;
+  width: 76vw;
   padding: 0;
 }
 
@@ -90,10 +87,11 @@ nav .nav-item:hover {
 }
 
 hr {
+  display: block;
   background-color: rgb(229, 211, 179);
   height: 2px;
   border: 0;
-  margin-top: 2.5vw;
+  margin-top: 1.5vw;
 }
 
 .current-room {
@@ -109,7 +107,6 @@ hr {
   margin-left: auto;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 50%;
 }
 
 .room {
@@ -124,7 +121,6 @@ hr {
   margin-left: auto;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 50%;
 }
 
 .room:hover {
@@ -151,9 +147,10 @@ hr {
   padding-right: 10px;
 }
 
-.auth-greeting {
+.home-message {
   font-size: 1.2vw;
-  padding: 2.5vw;
+  padding: 1.5vw;
+  margin-bottom: 1.5vw;
   background-color: rgb(242, 233, 217);
 }
 
@@ -164,25 +161,29 @@ hr {
 }
 
 .auth-form {
-  font-size: 1.2vw;
   padding: 1.5vw;
   background-color: rgb(229, 211, 179);
 }
 
 .auth-input {
   border: none;
-  height: 3vw;
-  width: 31.25vw;
+  width: 33.6vw;
   font-size: 1vw;
+  padding-top: 0.75vw;
+  padding-bottom: 0.75vw;
   padding-left: 1vw;
+  padding-right: 1vw;
   margin-bottom: 1.5vw;
 }
 
 .auth-button {
   border: none;
-  height: 3vw;
-  width: 32.25vw;
+  width: 100%;
   font-size: 1vw;
+  padding-top: 0.75vw;
+  padding-bottom: 0.75vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
   color: white;
   background-color: rgb(152, 117, 84);
 }
@@ -201,9 +202,8 @@ hr {
 
 .chess {
   position: relative;
-  width: 35.2vw;
-  margin-top: 2.5vw;
-  margin-bottom: 2.5vw;
+  width: 38.75vw;
+  margin-top: 1.5vw;
 }
 
 .modal {
@@ -222,6 +222,17 @@ hr {
   transform: translate(-50%, -50%)
 }
 
+.modal-message {
+  font-size: 1.5vw;
+  color: white;
+  margin: 10px;
+}
+
+.modal-timer {
+  font-size: 2vw;
+  color: white;
+}
+
 .modal-buttons > *:hover {
   color: white;
   background-color: rgb(177, 62, 42);
@@ -231,17 +242,6 @@ hr {
 .modal-buttons > *:disabled {
   color: white;
   background-color: gray;
-}
-
-.modal-message {
-  font-size: 2vw;
-  color: white;
-  margin: 10px;
-}
-
-.modal-timer {
-  font-size: 2.5vw;
-  color: white;
 }
 
 .white-button {
@@ -328,13 +328,13 @@ hr {
 }
 
 .chat-box {
-  height: 18.5vw;
+  height: 22.5vw;
   overflow: auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
   background-color: rgb(229, 211, 179);
-  margin-top: 2.5vw;
+  margin-top: 1.5vw;
   padding: 1.5vw;
   font-size: 1vw;
 }
@@ -346,15 +346,17 @@ hr {
 }
 
 .chat-input {
-  width: 28vw;
-  height: 2.5vw;
+  width: 88%;
   border: none;
+  padding-top: 0.75vw;
+  padding-bottom: 0.75vw;
   padding-left: 1vw;
+  padding-right: 1vw;
   font-size: 1vw;
 }
 
 .chat-button {
-  width: 4vw;
+  width: 12%;
   color: white;
   background-color: rgb(0, 179, 44);
   border: none;
@@ -368,4 +370,137 @@ hr {
 
 .chat-button:disabled {
   background-color: gray;
+}
+
+@media screen and (max-width: 760px) {
+  .container {
+    grid-template-areas:
+    "header"
+    "gap"
+    "sidebar"
+    "content";
+    grid-template-rows: 75px 0.25vw 45px 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .container > .sidebar {
+    display: grid;
+    grid-template-rows: 45px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .container > .content {
+    grid-template-areas:
+    "game"
+    "queue"
+    "chat";
+    grid-template-rows: 5fr 0.65fr 2.1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .current-room {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .current-room > .count {
+    margin-left: 0;
+  }
+
+  .room {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .room > .count {
+    margin-left: 0;
+  }
+
+  .disable {
+    flex-direction: column;
+    padding: 5px;
+  }
+
+  .disable > .count {
+    margin-left: 0;
+  }
+
+  .home-message {
+    font-size: 1em;
+  }
+
+  .auth-message {
+    font-size: 1em;
+  }
+
+  .auth-input {
+    width: 88.85vw;
+    font-size: 1em;
+  }
+
+  .auth-button {
+    font-size: 1em;
+  }
+
+  .room-header {
+    font-size: 1.2em;
+  }
+
+  .chess {
+    width: 94vw;
+  }
+
+  .modal-message {
+    font-size: 1.5em;
+  }
+
+  .modal-timer {
+    font-size: 2em
+  }
+
+  .white-button {
+    height: 50px;
+    width: 100px;
+    font-size: 1.2em;
+  }
+
+  .black-button {
+    height: 50px;
+    width: 100px;
+    font-size: 1.2em;
+  }
+
+  .play-again-button {
+    height: 50px;
+    width: 100px;
+    font-size: 1.2em;
+  }
+
+  .buttons > .bad {
+    font-size: 1em;
+  }
+
+  .buttons > .good {
+    font-size: 1em;
+  }
+
+  .buttons > .neutral {
+    font-size: 1em;
+  }
+
+  .player {
+    width: 45vw;
+  }
+
+  .chat-box {
+    font-size: 1em;
+  }
+
+  .chat-input {
+    font-size: 1em;
+  }
+
+  .chat-button {
+    font-size: 1em;
+  }
 }

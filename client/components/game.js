@@ -58,7 +58,7 @@ class Game extends Component {
   }
 
   updateWidth() {
-    this.setState({width: window.innerWidth >= 768 ? window.innerWidth * 0.88 * 0.4 : window.innerWidth * 0.9})
+    this.setState({width: window.innerWidth >= 760 ? window.innerWidth * 0.88 * 0.44 : window.innerWidth * 0.94})
   }
 
   draggable() {
@@ -207,9 +207,6 @@ class Game extends Component {
     const {username} = user
     const {position, white, black, forfeit} = game
     const {width, orientation, lightSquareStyle, darkSquareStyle, dropSquareStyle} = this.state
-
-    console.log(window.innerWidth)
-    console.log(this.state.width)
 
     return (
       <div className="game">
