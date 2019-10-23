@@ -6,7 +6,9 @@ import {logout} from '../store'
 const Header = ({isLoggedIn, handleClick, user, room, game}) => (
   <header>
     <nav>
-      <div className="nav-item">Chess Online</div>
+      <div className="nav-item">
+        <img src="/image/icon.png" width="35" /> Chess Online
+      </div>
       {isLoggedIn ? (
         <div>
           <a

@@ -86,6 +86,10 @@ nav .nav-item:hover {
   cursor: pointer;
 }
 
+nav .nav-item img {
+  vertical-align: middle;
+}
+
 hr {
   display: block;
   background-color: rgb(229, 211, 179);
