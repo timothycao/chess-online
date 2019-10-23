@@ -9,12 +9,13 @@ class Game extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      width: 600,
+      width: null,
       orientation: 'white',
       lightSquareStyle: 'rgb(238, 238, 210)',
       darkSquareStyle: 'rgb(118, 150, 86)',
       dropSquareStyle: 'rgb(70, 90, 51)'
     }
+    this.updateWidth = this.updateWidth.bind(this)
     this.draggable = this.draggable.bind(this)
     this.flipBoard = this.flipBoard.bind(this)
     this.changeBoard = this.changeBoard.bind(this)
@@ -34,8 +35,10 @@ class Game extends Component {
   }
 
   componentDidMount() {
+    this.updateWidth()
     this.props.fetchGame(this.props.user.roomId)
     this.game = new Chess()
+    window.addEventListener('resize', this.updateWidth)
   }
 
   componentDidUpdate() {
@@ -48,6 +51,14 @@ class Game extends Component {
       this.game.load(this.props.game.position)
       this.checkStatus()
     }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWidth)
+  }
+
+  updateWidth() {
+    this.setState({width: window.innerWidth >= 768 ? window.innerWidth * 0.88 * 0.4 : window.innerWidth * 0.9})
   }
 
   draggable() {
@@ -196,6 +207,9 @@ class Game extends Component {
     const {username} = user
     const {position, white, black, forfeit} = game
     const {width, orientation, lightSquareStyle, darkSquareStyle, dropSquareStyle} = this.state
+
+    console.log(window.innerWidth)
+    console.log(this.state.width)
 
     return (
       <div className="game">

@@ -4,13 +4,15 @@ body {
   margin: 0;
 }
 
-.container {
-  display: grid;
-  grid-template-areas:
-  "header header"
-  "sidebar content";
-  grid-template-rows: 85px 1fr;
-  grid-template-columns: 200px 1fr;
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "sidebar content";
+    grid-template-rows: 85px 1px;
+    grid-template-columns: 1.2fr 8.8fr;
+  }
 }
 
 .container > header {
@@ -35,34 +37,33 @@ body {
   grid-template-areas:
   "game queue"
   "game chat";
-  grid-template-rows: 310px 1fr;
-  grid-template-columns: 800px 1fr;
+  grid-template-rows: 1fr 10fr;
+  grid-template-columns: 1fr 1fr;
+  padding: 2.5vw;
+  gap: 2.5vw;
 }
 
 .container > .content > .auth {
   background-color: white;
-  margin: 50px;
+  padding: 2.5vw;
 }
 
 .container > .content > .game {
   grid-area: game;
   background-color: white;
-  margin: 50px;
+  padding: 2.5vw;
 }
 
 .container > .content > .queue {
   grid-area: queue;
   background-color: white;
-  margin-top: 50px;
-  margin-right: 50px;
-  margin-bottom: 50px;
+  padding: 2.5vw;
 }
 
 .container > .content > .chat {
   grid-area: chat;
   background-color: white;
-  margin-right: 50px;
-  margin-bottom: 50px;
+  padding: 2.5vw;
 }
 
 nav {
@@ -92,7 +93,7 @@ hr {
   background-color: rgb(229, 211, 179);
   height: 2px;
   border: 0;
-  margin-top: 50px;
+  margin-top: 2.5vw;
 }
 
 .current-room {
@@ -150,55 +151,40 @@ hr {
   padding-right: 10px;
 }
 
-.auth-header {
-  background-color: white;
-  margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
 .auth-greeting {
-  font-size: 1.2em;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 20px;
-  background-color: rgb(236,241,231);
+  font-size: 1.2vw;
+  padding: 2.5vw;
+  background-color: rgb(242, 233, 217);
 }
 
 .auth-message {
-  font-size: 1.2em;
-  margin: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
-  background-color: rgb(236,241,231);
+  font-size: 1.2vw;
+  padding: 1.5vw;
+  background-color: rgb(242, 233, 217);
 }
 
 .auth-form {
-  font-size: 1.2em;
-  margin: 50px;
-  padding: 50px;
-  background-color: rgb(217, 227, 206);
+  font-size: 1.2vw;
+  padding: 1.5vw;
+  background-color: rgb(229, 211, 179);
 }
 
 .auth-input {
   border: none;
-  height: 50px;
-  width: 100%;
-  font-size: 1em;
-  margin-bottom: 50px;
+  height: 3vw;
+  width: 31.25vw;
+  font-size: 1vw;
+  padding-left: 1vw;
+  margin-bottom: 1.5vw;
 }
 
 .auth-button {
   border: none;
-  height: 50px;
-  width: 100%;
-  font-size: 1em;
+  height: 3vw;
+  width: 32.25vw;
+  font-size: 1vw;
   color: white;
-  background-color: rgb(181, 194, 169);
+  background-color: rgb(152, 117, 84);
 }
 
 .auth-button:hover {
@@ -208,22 +194,16 @@ hr {
 
 .room-header {
   display: flex;
-  font-size: 1.2em;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 20px;
-  background-color: rgb(236,241,231);
-  /* background-color: rgb(242, 233, 217); */
+  font-size: 1.2vw;
+  padding: 1.5vw;
+  background-color: rgb(242, 233, 217);
 }
 
 .chess {
   position: relative;
-  width: 600px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 30px;
+  width: 35.2vw;
+  margin-top: 2.5vw;
+  margin-bottom: 2.5vw;
 }
 
 .modal {
@@ -254,13 +234,13 @@ hr {
 }
 
 .modal-message {
-  font-size: 1.5em;
+  font-size: 2vw;
   color: white;
   margin: 10px;
 }
 
 .modal-timer {
-  font-size: 1.7em;
+  font-size: 2.5vw;
   color: white;
 }
 
@@ -268,72 +248,70 @@ hr {
   color: black;
   background-color: white;
   border: none;
-  padding: 20px 30px;
+  height: 4vw;
+  width: 8vw;
   text-align: center;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.2vw;
 }
 
 .black-button {
   color: white;
   background-color: black;
   border: none;
-  padding: 20px 30px;
+  height: 4vw;
+  width: 8vw;
   text-align: center;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.2vw;
 }
 
 .play-again-button {
   color: white;
   background-color: rgb(0, 179, 44);
   border: none;
-  padding: 10px 20px;
-  margin-left: 50px;
-  margin-right: 50px;
+  height: 4vw;
+  width: 8vw;
   text-align: center;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.2vw;
 }
 
 .buttons {
   display: flex;
   justify-content: space-around;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: rgb(217, 227, 206);
+  padding: 1.5vw;
+  background-color: rgb(242, 233, 217);
 }
 
 .buttons > .bad {
   background-color: rgb(220, 61, 42);
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 0.75vw 1vw;
   text-align: center;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1vw;
 }
 
 .buttons > .good {
   background-color: rgb(0, 179, 44);
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 0.75vw 1vw;
   text-align: center;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1vw;
 }
 
 .buttons > .neutral {
   background-color: rgb(0, 140, 242);
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 0.75vw 1vw;
   text-align: center;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1vw;
 }
 
 .buttons > *:hover {
@@ -346,39 +324,41 @@ hr {
 }
 
 .player {
-  width: 250px
+  width: 16vw;
 }
 
 .chat-box {
-  height: 360px;
+  height: 18.5vw;
   overflow: auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
-  background-color: rgb(217, 227, 206);
-  margin-left: 50px;
-  margin-right: 50px;
-  padding: 20px;
+  background-color: rgb(229, 211, 179);
+  margin-top: 2.5vw;
+  padding: 1.5vw;
+  font-size: 1vw;
 }
 
 .chat-bar {
   display: flex;
-  margin-left: 50px;
-  margin-right: 50px;
+  padding: 1.5vw;
+  background-color: rgb(242, 233, 217);
 }
 
 .chat-input {
-  width: 90%;
-  height: 40px;
-  font-size: 1em;
+  width: 28vw;
+  height: 2.5vw;
+  border: none;
+  padding-left: 1vw;
+  font-size: 1vw;
 }
 
 .chat-button {
-  width: 10%;
+  width: 4vw;
   color: white;
-  background-color: rgb(181, 194, 169);
+  background-color: rgb(0, 179, 44);
   border: none;
-  font-size: 1em;
+  font-size: 1vw;
 }
 
 .chat-button:hover {

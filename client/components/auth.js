@@ -7,11 +7,9 @@ const Auth = props => {
 
   return (
     <div className="content">
-      <div className="auth-header">
-        <div className="auth-greeting">
-          <h3>Welcome to Chess Online!</h3>
-          <div>We are a community of chess enthusiasts. Our interactive platform features gamerooms, each of which hosts player vs player "King of the Court" style competition. Join different rooms to play, or watch and chat with fellow enthusiasts!</div>
-        </div>
+      <div className="auth-greeting">
+        <h3>Welcome to Chess Online!</h3>
+        <div>We are a community of chess enthusiasts. Our interactive platform features gamerooms, each of which hosts player vs player "King of the Court" style competition. Join different rooms to play, or watch and chat with fellow enthusiasts!</div>
       </div>
       <div />
       <form className="auth" onSubmit={handleSubmit} name={name}>
