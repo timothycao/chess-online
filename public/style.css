@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Acme', sans-serif;
   background: rgb(229, 211, 179);
   margin: 0;
 }
@@ -20,12 +20,16 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
+  z-index: 1;
+  box-shadow: 0 0.1vw 0.25vw rgba(0, 0, 0, 0.4)
 }
 
 .container > .sidebar {
   grid-area: sidebar;
   background-color: rgb(185,153,118);
   height: 56vw;
+  z-index: 1;
+  box-shadow: 0 0.1vw 0.25vw rgba(0, 0, 0, 0.4)
 }
 
 .container > .content {
@@ -44,24 +48,32 @@ body {
 .container > .content > .auth {
   background-color: white;
   padding: 1.5vw;
+  z-index: 2;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.2);
 }
 
 .container > .content > .game {
   grid-area: game;
   background-color: white;
   padding: 1.5vw;
+  z-index: 2;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.2);
 }
 
 .container > .content > .queue {
   grid-area: queue;
   background-color: white;
   padding: 1.5vw;
+  z-index: 2;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.2);
 }
 
 .container > .content > .chat {
   grid-area: chat;
   background-color: white;
   padding: 1.5vw;
+  z-index: 2;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.2);
 }
 
 nav {
@@ -90,6 +102,11 @@ nav .nav-item img {
   vertical-align: middle;
 }
 
+nav .nav-item span {
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
 hr {
   display: block;
   background-color: rgb(229, 211, 179);
@@ -104,6 +121,7 @@ hr {
   color: rgb(229, 211, 179);
   background-color: rgb(152, 117, 84);
   padding: 15px;
+  box-shadow: 0 0.1vw 0.1vw rgba(0, 0, 0, 0.1);
 }
 
 .current-room > .count {
@@ -156,12 +174,14 @@ hr {
   padding: 1.5vw;
   margin-bottom: 1.5vw;
   background-color: rgb(242, 233, 217);
+  box-shadow: 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .auth-message {
   font-size: 1.2vw;
   padding: 1.5vw;
   background-color: rgb(242, 233, 217);
+  box-shadow: 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .auth-form {
@@ -172,17 +192,20 @@ hr {
 .auth-input {
   border: none;
   width: 33.6vw;
+  font-family: inherit;
   font-size: 1vw;
   padding-top: 0.75vw;
   padding-bottom: 0.75vw;
   padding-left: 1vw;
   padding-right: 1vw;
   margin-bottom: 1.5vw;
+  box-shadow: 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .auth-button {
   border: none;
   width: 100%;
+  font-family: inherit;
   font-size: 1vw;
   padding-top: 0.75vw;
   padding-bottom: 0.75vw;
@@ -190,6 +213,7 @@ hr {
   padding-right: 1vw;
   color: white;
   background-color: rgb(152, 117, 84);
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.4);
 }
 
 .auth-button:hover {
@@ -202,12 +226,14 @@ hr {
   font-size: 1.2vw;
   padding: 1.5vw;
   background-color: rgb(242, 233, 217);
+  box-shadow: 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .chess {
   position: relative;
   width: 38.75vw;
   margin-top: 1.5vw;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.2);
 }
 
 .modal {
@@ -260,6 +286,7 @@ hr {
   width: 8vw;
   text-align: center;
   text-decoration: none;
+  font-family: inherit;
   font-size: 1.2vw;
 }
 
@@ -271,6 +298,7 @@ hr {
   width: 8vw;
   text-align: center;
   text-decoration: none;
+  font-family: inherit;
   font-size: 1.2vw;
 }
 
@@ -282,6 +310,7 @@ hr {
   width: 8vw;
   text-align: center;
   text-decoration: none;
+  font-family: inherit;
   font-size: 1.2vw;
 }
 
@@ -290,6 +319,7 @@ hr {
   justify-content: space-around;
   padding: 1.5vw;
   background-color: rgb(242, 233, 217);
+  box-shadow: 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .buttons > .bad {
@@ -299,7 +329,9 @@ hr {
   padding: 0.75vw 1vw;
   text-align: center;
   text-decoration: none;
+  font-family: inherit;
   font-size: 1vw;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.4);
 }
 
 .buttons > .good {
@@ -309,7 +341,9 @@ hr {
   padding: 0.75vw 1vw;
   text-align: center;
   text-decoration: none;
+  font-family: inherit;
   font-size: 1vw;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.4);
 }
 
 .buttons > .neutral {
@@ -319,7 +353,9 @@ hr {
   padding: 0.75vw 1vw;
   text-align: center;
   text-decoration: none;
+  font-family: inherit;
   font-size: 1vw;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.4);
 }
 
 .buttons > *:hover {
@@ -336,7 +372,7 @@ hr {
 }
 
 .chat-box {
-  height: 22.5vw;
+  height: 22.25vw;
   overflow: auto;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -345,12 +381,14 @@ hr {
   margin-top: 1.5vw;
   padding: 1.5vw;
   font-size: 1vw;
+  box-shadow: inset 0 0.1vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .chat-bar {
   display: flex;
   padding: 1.5vw;
   background-color: rgb(242, 233, 217);
+  box-shadow: 0 -0.1vw 0.4vw rgba(0, 0, 0, 0.1), 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .chat-input {
@@ -360,7 +398,9 @@ hr {
   padding-bottom: 0.75vw;
   padding-left: 1vw;
   padding-right: 1vw;
+  font-family: inherit;
   font-size: 1vw;
+  box-shadow: 0 0.05vw 0.1vw rgba(0, 0, 0, 0.2);
 }
 
 .chat-button {
@@ -368,7 +408,9 @@ hr {
   color: white;
   background-color: rgb(0, 179, 44);
   border: none;
+  font-family: inherit;
   font-size: 1vw;
+  box-shadow: 0 0.25vw 0.25vw rgba(0, 0, 0, 0.4);
 }
 
 .chat-button:hover {
@@ -395,6 +437,8 @@ hr {
     display: grid;
     grid-template-rows: 48px;
     grid-template-columns: repeat(6, 1fr);
+    box-shadow: 0 100px 2px rgba(0, 0, 0, 0.4);
+    z-index: initial;
   }
 
   .container > .content {
@@ -404,6 +448,7 @@ hr {
     "chat";
     grid-template-rows: 5fr 0.65fr 2.1fr;
     grid-template-columns: 1fr;
+    box-shadow: inset 0 0.1vw 0.5vw rgba(0, 0, 0, 0.2)
   }
 
   nav {
@@ -484,7 +529,7 @@ hr {
 
   .play-again-button {
     height: 10vw;
-    width: 30vw;
+    width: 40vw;
     font-size: 5vw;
   }
 

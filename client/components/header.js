@@ -7,7 +7,8 @@ const Header = ({isLoggedIn, handleClick, user, room, game}) => (
   <header>
     <nav>
       <div className="nav-item">
-        <img src="/image/icon.png" width="35" /> Chess Online
+        <img src="/image/icon.png" width="35" />
+        <span>CHESS ONLINE</span>
       </div>
       {isLoggedIn ? (
         <div>
