@@ -34,7 +34,7 @@ class Modal extends Component {
           {
             type === 'playagain' ?
             username === queue[0] ?
-            <div className="modal-message">You have been added to the front of the queue!</div> :
+            <div className="modal-message">You've been added to the front of the queue!</div> :
             <div className="modal-message">{message}</div> :
             <div className="modal-message">{message}</div>
           }

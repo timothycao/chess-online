@@ -223,7 +223,11 @@ hr {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .modal-message {
@@ -350,7 +354,7 @@ hr {
 }
 
 .chat-input {
-  width: 88%;
+  width: 85%;
   border: none;
   padding-top: 0.75vw;
   padding-bottom: 0.75vw;
@@ -360,7 +364,7 @@ hr {
 }
 
 .chat-button {
-  width: 12%;
+  width: 15%;
   color: white;
   background-color: rgb(0, 179, 44);
   border: none;
@@ -383,13 +387,13 @@ hr {
     "gap"
     "sidebar"
     "content";
-    grid-template-rows: 75px 0.25vw 45px 1fr;
+    grid-template-rows: 75px 0.25vw 48px 1fr;
     grid-template-columns: 1fr;
   }
 
   .container > .sidebar {
     display: grid;
-    grid-template-rows: 45px;
+    grid-template-rows: 48px;
     grid-template-columns: repeat(6, 1fr);
   }
 
@@ -400,6 +404,10 @@ hr {
     "chat";
     grid-template-rows: 5fr 0.65fr 2.1fr;
     grid-template-columns: 1fr;
+  }
+
+  nav {
+    width: 100vw;
   }
 
   .current-room {
@@ -455,41 +463,41 @@ hr {
   }
 
   .modal-message {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   .modal-timer {
-    font-size: 2em
+    font-size: 1.6em
   }
 
   .white-button {
-    height: 50px;
-    width: 100px;
-    font-size: 1.2em;
+    height: 10vw;
+    width: 20vw;
+    font-size: 5vw;
   }
 
   .black-button {
-    height: 50px;
-    width: 100px;
-    font-size: 1.2em;
+    height: 10vw;
+    width: 20vw;
+    font-size: 5vw;
   }
 
   .play-again-button {
-    height: 50px;
-    width: 100px;
-    font-size: 1.2em;
+    height: 10vw;
+    width: 30vw;
+    font-size: 5vw;
   }
 
   .buttons > .bad {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .buttons > .good {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .buttons > .neutral {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .player {
@@ -497,14 +505,14 @@ hr {
   }
 
   .chat-box {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .chat-input {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .chat-button {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 }
